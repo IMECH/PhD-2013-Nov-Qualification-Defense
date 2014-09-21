@@ -1,0 +1,341 @@
+\section{已做工作}
+\subsection{研究思路}
+\begin{frame}
+\frametitle{研究思路}
+\input{./animate/idea.tex}
+\note{\textcolor{red}{165-250s}}
+\note<3->[item]{研究内容主要分为方法, 应用和并行三大块.}
+\note<4->[item]{对于方法, 主要是考虑改进DPD势函数和藕合MD,DPD,SPH方法.}
+\note<5->[item]{方法上的工作最终要反馈给应用.}
+\note<6->[item]{对于应用, 在做正式的工作前, 用简单流体的流动检验方法和程序.}
+\note<7->[item]{在此基础上, 我们模拟并研究了高分子在微通道中运动与悬浮.}
+\note<8->[item]{同时也验证了珠簧链模型的可行性.}
+\note<9->[item]{下一步再把高分子的模拟推广到多物理场, 比如电场.}
+\note<10->[item]{另一方面应用是在红细胞的运动与变形模拟方面, 我们利用珠簧链模型来构造红细胞膜.}
+\note<11->[item]{在此基础上, 再把模型由红细胞推广到其它细胞, 比如我们现在选择的乳腺癌细胞.}
+\note<12->[item]{对于并行, 结合藕合算法, 行成一套高性能大规模的程序}
+\note<13->[item]{最后再把它反馈各个应用中, 做一些多尺度大规模拟计算, 由单个或数个红细胞的模拟发展成一段毛细血管内的血液流动的模拟}
+%\input{./figures/flowchart.tex}
+\end{frame}
+
+\subsection{高分子在微通道中运动与悬浮的DPD模拟}
+\begin{frame}
+\frametitle{简单流体及高分子溶液泊肃叶流的DPD模拟}
+\note{\textcolor{red}{250-270s}}
+\note[item]{下面具体介绍一下我目前已经做或正在做的工作. 第一方面的工作是高分子在微通道中运动与悬浮的DPD模拟}
+\note[item]{首先我们在成功模拟简单流体的基础上, 模拟了高分子在简单直管道中的运动与迁移.}
+\begin{columns}
+\begin{column}[c]{0.5\textwidth}
+\begin{figure}
+\centering
+\animategraphics[width=\textwidth, poster=first, autoplay, every = 2]{5}{./animate/Poise/}{1}{16}
+\caption{简单流体的泊肃叶流}
+\end{figure}
+\end{column}
+\begin{column}[c]{0.5\textwidth}
+\begin{figure}
+\centering
+\animategraphics[width=\textwidth, poster=first, autoplay, every = 2]{5}{./animate/Chain=/}{1}{30}
+\caption{高分子溶液的泊肃叶流}
+\end{figure}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}
+\frametitle{不同微通道中高分子运动与悬浮的DPD模拟}
+\note{\textcolor{red}{270-280s}}
+\note[item]{其次我们还对微缩通道中的高分子运动与悬浮进行了模拟.}
+\begin{columns}
+\begin{column}[c]{0.5\textwidth}
+\begin{figure}
+\centering
+\animategraphics[width=\textwidth, poster=first, autoplay, every = 2]{5}{./animate/ChainT/}{1}{30}
+\caption{方型微缩直通道}
+\end{figure}
+\end{column}
+\begin{column}[c]{0.5\textwidth}
+\begin{figure}
+\centering
+\animategraphics[width=\textwidth, poster=first, autoplay, every = 2]{5}{./animate/ChainY/}{1}{30}
+\caption{坡型微缩通道}
+\end{figure}
+\end{column}
+\end{columns}
+\end{frame}
+
+
+%\begin{frame}
+%\frametitle{高分子溶液水平方向速度, 温度, 密度}
+%\begin{columns}
+%\begin{column}[c]{0.5\textwidth}
+%\begin{figure}
+%\centering
+%\includegraphics[width=\textwidth]{changChain1.pdf}
+%\caption{微直道}
+%\end{figure}
+%\end{column}
+%\begin{column}[c]{0.5\textwidth}
+%\begin{figure}
+%\centering
+%\includegraphics[width=\textwidth]{Tprof.pdf}
+%\caption{方型微缩直通道}
+%\end{figure}
+%\end{column}
+%\end{columns}
+%\end{frame}
+
+
+\begin{frame}
+\frametitle{高分子在槽道中运动与悬浮的DPD模拟}
+\note{\textcolor{red}{280-295s}}
+\note[item]{最后我们把对高分子运动与悬浮的模拟推广到复杂的槽道中.}
+\note[item]{图上显示的是部分高分子在不同时刻的构型图}
+\begin{center}
+\includegraphics[width=\textwidth]{configchains.pdf}
+\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{高分子在槽道中运动与悬浮的DPD模拟}
+\note{\textcolor{red}{295-310s}}
+\note[item]{我们还计算并比较了不同高分子长度和数量对流场的影响, 这里我们展示了部分物理场, 图5-图7分别为的水平速度场, 温度场, 密度场.}
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{vxprofile.pdf}
+\vspace{-2em}
+\caption{水平速度场}
+\includegraphics[width=\textwidth]{t.pdf}
+\vspace{-2em}
+\caption{温度场}
+\includegraphics[width=\textwidth]{rho.pdf}
+\vspace{-2em}
+\caption{密度场}
+\end{figure}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{高分子在微通道中运动与悬浮的DPD模拟: 小结}
+\note{\textcolor{red}{310-330s}}
+\note[item]{对于高分子运动与悬浮的模拟, 目前我们得到了一些有关高分子在运动中表现出来的行为,对流场的影响等方面定性和定量的结果和结论, 并发表了两篇期刊论文.}
+\begin{itemize}
+\item 高分子链对沿高度方向的水平速度及密度则有较明显影响. 高分子链的存在降低周围流体粒子的流动速度, 引起局部粒子密度波动, 形成比较明显的拖曳现象. 
+\item 高分子链伸展程度: 通道边界区域 $>$ 通道中心区域; 
+微直通道$>$斜坡微缩通道$>$方形微缩通道.
+\item 微通道结构上细微的差别也会对系统的产生明显产生差异. % 主要体现在速度和密度
+\item 高分子链会根据周围流动, 自动调整其构型, 以便更有利的快速顺利的通过微通道.
+\end{itemize}
+
+\textcolor{blue}{\scriptsize \bf Zhou L. V., Liu M. B.* and Chang, J. Z., \it{Acta Polymerica Sinica} 7: 720-727, 2012.} 
+
+\textcolor{blue}{\scriptsize \bf Zhou L. V., Liu M. B.* and Chang J. Z., \it{Interaction and Multiscale Mechanics} 6(2): 157-172, 2013.}
+
+\end{frame}
+
+
+
+\subsection{血红细胞与癌细胞的DPD模拟}
+\begin{frame}
+\frametitle{红细胞的运动与变形模拟: 红细胞膜结构}
+\note{\textcolor{red}{330-350s}}
+\note[item]{另一方面, 我们还对红细胞的运动与变形进行了模拟}
+\note[item]{图8是血红细胞的模结构, 红细胞膜主要由双分子层, 跨膜蛋白及膜下的血影蛋白网组成. 血影蛋白网是细胞的主要骨架}
+\begin{figure}[!htb]
+\centering
+\input{./figures/RBCstructure.tex}
+\caption{\label{fig:RBCstructure} 人类红细胞膜结构}
+\end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{红细胞的运动与变形模拟: 网络模型和连续模型}
+\note{\textcolor{red}{350-375s}}
+\note[item]{我们用左图中由珠簧链构网状结构来模拟红细胞.}
+\note[item]{由于目前的实验测出的参数都是基于细胞的连续模型, 如剪切模量, 弯曲刚度. 这些参数需要同粒子模型中的弹簧常数, 弯曲常数等相匹配.}
+\begin{figure}[!htb]
+\centering
+\input{./figures/network2continuum.tex}
+\caption{\label{fig:network2continuum} 粒子模型(节点为粒子)和连续模型的示意图}
+\end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{红细胞的运动与变形模拟: 应力分析与推导}
+\note{\textcolor{red}{375-390s}}
+\note[item]{为了匹配这些参数, 要对珠簧链构成的网络单元进行力学分析, 通过对图10的六边形单元应力分析, 可以得到剪切模量与弹簧常数的关系}
+\begin{columns}
+\begin{column}[c]{0.5\textwidth}
+\begin{figure}[!htb]
+\centering
+\input{./figures/hexagonalcell.tex}
+\caption{\label{fig:network2continuum} 六边形单元}
+\end{figure}
+\end{column}
+\begin{column}[c]{0.5\textwidth}
+在$V$周围$2A$面积上的应力
+\[
+\tau_{\alpha\beta} = -\frac{1}{2A}\sum_{\chi=\{a,b,c\}} \frac{f(\chi)}{\chi}\chi_\alpha \chi_\beta
+\]
+剪切模量由$\mu_0=\frac{\partial \tau_{xy}}{\partial \gamma}|_{\gamma=0}$得到.
+\[
+\mu_0 = -\frac{A_0}{l_0}\frac{\partial \frac{f(r)}{r}}{\partial r}\bigg|_{r=l_0}-\frac{3f(l_0)l_0}{4A_0}
+\]
+
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}
+\frametitle{红细胞的运动与变形模拟: 弯曲能分析与推导}
+\note{\textcolor{red}{390-405s}}
+\note[item]{类似的, 对由珠簧链构成的相邻两三角形单元进行分析, 把连续模型中的弯曲能量与粒子方法中的弯曲能量相匹配, 可以得到弯曲常数与弯曲刚度间的联系.}
+\begin{columns}
+\begin{column}[c]{0.5\textwidth}
+\begin{figure}[!htb]
+\centering
+\input{./figures/bend.tex}
+\vspace{-2em}
+\caption{\label{fig:network2continuum} 三角形单元}
+\end{figure}
+\end{column}
+\begin{column}[c]{0.5\textwidth}
+由Helfrich模型得到弹性模弯曲的能量
+\[
+E_c= 8\pi k_c(1-R/R_0)^2+4\pi k_g
+\]
+网状模型中膜弯曲的势能
+\[
+V_{\text{bending}}=\sum_{j\in1\cdots N_s}k_b[1-\cos(\theta_j-\theta_0)]
+\]
+由$E_c=V_{\text{bending}}$, 且$k_g=-4k_c/3$得
+$k_b=2k_c/\sqrt{3}$.
+\end{column}
+\end{columns}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{红细胞的运动与变形模拟: 剪切流与泊肃叶流(2D)}
+\note{\textcolor{red}{405-420s}}
+\note{在选择了适当的参数后, 我们首先对二维红细胞在剪切流与泊肃叶流(2D)作了模拟, 模拟到得的形态与实验和文献的结果吻合}
+\begin{columns}
+\begin{column}[c]{0.5\textwidth}
+\begin{figure}
+\centering
+\animategraphics[width=\textwidth, poster=first, autoplay, every = 3]{5}{./animate/shear2d/}{0}{58}
+\caption{剪切流中红细胞(2D)的运动与变形}
+\end{figure}
+\end{column}
+\begin{column}[c]{0.5\textwidth}
+\begin{figure}
+\centering
+\animategraphics[width=\textwidth, poster=first, autoplay, every = 2]{5}{./animate/poise2d/}{0}{43}
+\caption{泊肃叶流中红细胞(2D)的运动与变形}
+\end{figure}
+\end{column}
+\end{columns}
+\end{frame}
+
+
+
+
+\begin{frame}
+\frametitle{红细胞的运动与变形模拟: 三维红细胞拉伸}
+\note{\textcolor{red}{420-440s}}
+\note[item]{其次, 我们对三维红细胞的拉伸实验做了模拟}
+\note[item]{图14中是红细胞在不同拉力下的直径变化, 黑色是实验结果, 蓝点和红点是我们计算结果. 可以看出计算结果与实验结果吻合良好.}
+\begin{columns}
+\begin{column}[c]{0.4\textwidth}
+\begin{center}
+\animategraphics[width=0.78\textwidth, poster=first, autoplay, loop]{5}{./animate/RBC/90-0/}{1}{50}\\
+\animategraphics[width=\textwidth, poster=first, autoplay, loop]{5}{./animate/RBC/30/}{1}{50}
+\end{center}
+\end{column}
+\begin{column}[c]{0.6\textwidth}
+\begin{figure}[!htb]
+\includegraphics[width=\textwidth]{lp.pdf}
+\caption{红细胞在不同拉力下的直径变化}
+\end{figure}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}
+\frametitle{癌细胞吸入实验的模拟}
+\note{\textcolor{red}{440-460s}}
+\note[item]{在成功模拟红细胞的基础上, 我们参考红细胞的模型, 又对乳腺癌细胞进行建模，并对乳腺癌细胞吸入实验进行了模拟}
+\animategraphics[width=\textwidth, poster=first, autoplay, every=3]{5}{./animate/cell3d/}{1}{109}
+\end{frame}
+
+%\frame{\frametitle{癌细胞的模拟: 细胞构型}
+%\includegraphics[width=1\textwidth]{cell.pdf}
+%}
+
+%\frame{\frametitle{癌细胞的模拟: 位移与速度}
+% \begin{columns}
+%  \begin{column}[b]{0.5\textwidth}
+%\includegraphics[width=1\textwidth]{x.pdf}
+%  \end{column}
+%  \begin{column}[b]{0.5\textwidth}
+%\begin{center}
+%\includegraphics[width=1\textwidth]{cellLenght.pdf}
+%\end{center}
+%  \end{column}
+%\end{columns}
+%}
+
+\frame{\frametitle{癌细胞吸入实验的模拟: 构型与实验对比}
+\note{\textcolor{red}{460-475s}}
+\note[item]{左图为实验得到的细胞构型结果, 右图为我们计算得到的结果, 结果显示计算得到的细胞构型与实验吻合较好}
+ \begin{columns}
+  \begin{column}[b]{0.5\textwidth}
+\includegraphics[width=\textwidth]{cell.jpg}
+  \end{column}
+  \begin{column}[b]{0.5\textwidth}
+\begin{center}
+\fbox{\includegraphics[width=0.43\textwidth]{cellconfig01.pdf}}
+\fbox{\includegraphics[width=0.43\textwidth]{cellconfig02.pdf}}
+
+\vspace{5pt}
+
+\fbox{\includegraphics[width=0.43\textwidth]{cellconfig03.pdf}}
+\fbox{\includegraphics[width=0.43\textwidth]{cellconfig04.pdf}}
+
+\vspace{5pt}
+
+\fbox{\includegraphics[width=0.43\textwidth]{cellconfig05.pdf}}
+\fbox{\includegraphics[width=0.43\textwidth]{cellconfig06.pdf}}
+
+\vspace{1pt}
+%\includegraphics[width=0.98\textwidth]{cellconfig.pdf}
+\end{center}
+  \end{column}
+\end{columns}
+}
+
+%\frame{\frametitle{癌细胞的模拟: 速度与实验对比}
+% \begin{columns}
+%  \begin{column}[b]{0.46\textwidth}
+%\includegraphics[width=1\textwidth]{vx.jpg}
+%  \end{column}
+%  \begin{column}[b]{0.54\textwidth}
+%\begin{center}
+%\includegraphics[width=1\textwidth]{cellvx.pdf}
+%\end{center}
+%  \end{column}
+%\end{columns}
+%}
+
+\begin{frame}
+\frametitle{血红细胞与癌细胞的DPD模拟: 小结}
+\note{\textcolor{red}{475-495s}}
+\note[item]{我们还比较了细胞的运动速度等结果, 得到了一些定性和半定量的结果.}
+\begin{itemize}
+\item 应用DPD方法对红细胞做了初步模拟, 二维剪切流与泊肃叶流及拉伸情况与实验观察或其他文献报告吻合, 验证了模型和程序的合理性.
+\item 采用类似的方法, 对乳腺癌细胞的吸入实验展开了初步模拟. 模拟所得结果与实验基本吻合.
+\item 乳腺癌细胞在开始进入微缩通道时减速, 拉长自身, 当细胞绝大部进入微缩结构后, 迅速加速直至细胞完全进入微缩通道; 细胞在微缩通道中的运动速度几乎不变. 当细胞从微缩结构的出口离开时, 又逐渐恢复了球形.  数值模拟所得到的细胞变形, 吸入及释放复原的形态与实验结果吻合.
+\item 通过进一步定量分析, 有望对红细胞和乳腺癌细胞开展更深入研究.
+\end{itemize}
+\end{frame}
+

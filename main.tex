@@ -1,0 +1,134 @@
+\documentclass{beamer} % blue; brown; gray; red;
+%\documentclass[handout]{beamer}
+%\usepackage{pgfpages}
+%\usepackage{handoutWithNotes}
+%\pgfpagesuselayout{4 on 1 with notes}[a4paper,border shrink=5mm]
+%\pgfpagesuselayout{4 on 1}[a4paper,border shrink=5mm]
+\usepackage{beamerthemesplit}
+\usepackage{beamerthemeshadow}
+%\usepackage[draft]{animate}
+\usepackage{animate}
+\usepackage{movie15}
+\usepackage{graphics}
+\usepackage{colortbl}
+\usepackage{pgf,pgfarrows,pgfnodes,pgfautomata,pgfheaps}
+\usepackage{amsmath,amssymb}
+\usepackage{pgfpages}
+\usepackage{tikz,pgffor}
+\usetikzlibrary{shadows}
+\usetikzlibrary{arrows}
+\usetikzlibrary{calc,intersections,through,backgrounds}
+\usepackage{ifthen}
+\usetikzlibrary{shapes}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{xeCJK}
+\usepackage{fontspec}
+\setCJKmainfont[BoldFont=simhei.ttf]{simkai.ttf}
+%\setCJKsansfont{simhei.ttf}
+%\setCJKmonofont{simfang.ttf}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\setbeameroption{show notes}
+%\setbeameroption{show only notes}
+%\setbeameroption{show notes on second screen=right}
+
+
+
+\usetheme{Warsaw}
+%别的主题:Bergen,Boadilla,Madrid,AnnArbor,CambridgeUS,Pittsburgh, Rochester.
+%有导航栏:Antibes,JuanLesPins,Montpellier,
+%有内容的:Berkeley,PaloAlto,% Goettingen,Marburg,Hannover
+%小导航栏:Berlin,Ilmenau,Dresden,Darmstadt, Frankfurt,Singapore,Szeged,
+%章节表单:Copenhagen,Luebeck,Malmoe,Warsaw
+\beamertemplateshadingbackground{red!10}{structure!10}
+\beamertemplatesolidbackgroundcolor{white!90!blue}
+\beamertemplatetransparentcovereddynamic
+\beamertemplateballitem
+\beamertemplatenumberedballsectiontoc
+%\beamertemplatelargetitlepage
+\beamertemplateboldpartpage
+
+\usecolortheme{sidebartab}
+%beetle,crane,dove,fly,seagull,wolverine,beaver
+\renewcommand{\raggedright}{\leftskip=0pt \rightskip=0pt plus 0cm}
+\raggedright
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\graphicspath{{figures/}}
+
+\setbeamertemplate{caption}[numbered]
+\newcommand{\animatepath}{./animate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\definecolor{MyDarkGreen}{rgb}{0.0,0.4,0.0}
+
+\begin{document}
+\renewcommand\contentsname{\bf 目录}
+\renewcommand\figurename{\bf 图}
+\renewcommand\tablename{\bf 表}
+\renewcommand\refname{参考文献}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\makeatletter
+\usefoottemplate{ %重新定义页脚，加入作者，单位，单位图标，和文档标题
+  \vbox{\tiny%
+    \hbox{%
+      \setbox\beamer@linebox=\hbox to\paperwidth{%
+        \hbox to.5\paperwidth{
+            \hfill\tiny\color{white}
+                  \textbf{\insertshortauthor\quad\insertshortinstitute}
+            \hskip .1cm\lower 0.2em\hbox{\includegraphics[height=0.25cm]{./figures/CAS.pdf}}
+            \hskip.3cm}%
+        \hbox to.5\paperwidth{
+            \hskip.3cm\tiny\color{white}
+                  \textbf{\insertshorttitle}\hfill}\hfill}%
+      \ht\beamer@linebox=2.625ex%
+      \dp\beamer@linebox=0pt%
+      \setbox\beamer@linebox=\vbox{\box\beamer@linebox\vskip1.125ex}%
+      \color{structure}\hskip-\Gm@lmargin\vrule width.5\paperwidth
+      height\ht\beamer@linebox\color{structure!70}\vrule width.5\paperwidth
+      height\ht\beamer@linebox\hskip-\paperwidth%
+      \hbox{\box\beamer@linebox\hfill}\hfill\hskip-\Gm@rmargin}
+  }
+}
+\makeatother
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title{复杂流体多尺度模拟方法与数值仿真研究}
+\subtitle{力学研究所2014年(春季)硕博连读生转博答辩}
+\institute[流固耦合系统力学重点实验室]{流固耦合系统力学重点实验室}
+\author{周吕文 (导师:刘谋斌)}
+\date{2013年11月7日}
+
+%\pgfdeclaremask{zhou}{./Logo/CAS.pdf}
+%\pgfdeclareimage[mask=zhou,height=2.5cm]{zhou}{./Logo/CAS.pdf}
+%\titlegraphic{\pgfuseimage{zhou}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frame[plain]{
+\titlepage
+\note{\textcolor{red}{[0-10s]}}
+\note[item]{各位老师, 大家下午好}
+\note[item]{我是流固耦合系统力学实验室周吕文, 我的导师是刘谋斌老师}
+\note[item]{今天我答辩的题目是复杂流体多尺度模拟方法与数值仿真研究}
+} 
+\titlegraphic{\pgfuseimage{title}}
+\AtBeginSection[]{ % 在每个Section前都会加入的Frame
+  \frame<handout:0>{
+    \frametitle{提纲}
+    \tableofcontents[current,currentsubsection]
+  }
+}
+\frame[Outline]{\frametitle{提纲}\tableofcontents
+\note{\textcolor{red}{[10-15s]}}
+\note[item]{答辩内容分为研究背景, 研究方法, 已做工作和研究计划四部分}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{./sections/Introduction}
+\input{./sections/Method}
+\input{./sections/Work}
+\input{./sections/Plan}
+
+%\includepart{thebibliography}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{./sections/thankyou}
+\end{document}

@@ -1,0 +1,57 @@
+
+\tikzstyle{decision} = [diamond,aspect=2, draw,fill=blue!20, 
+    text width=32, text badly centered, inner sep=0pt]
+\tikzstyle{block} = [rectangle, draw, fill=blue!20, 
+    text width=43, text centered, rounded corners, minimum height=25]
+\tikzstyle{line} = [draw, -latex', very thick]
+\tikzstyle{cloud} = [draw, ellipse,fill=red!20, node distance=75,
+    text width=28, minimum height=0]
+{\footnotesize
+\begin{tikzpicture}[scale=0.76]
+    % Place nodes
+    \node [block](A) at (0,-1) {\bf 研究内容};
+    \node [block](B) at (3,-1) {\bf 应用};
+    \node [block](C) at (3,3.5) {\bf 方法};
+    \node [block](D) at (3,-4.5) {\bf 并行 CPU/GPU};
+
+    \node [block](E) at (6,0.0) {高分子};
+    \node [block](F) at (6,-2.0) {红细胞};
+    \node [block, fill=red!30](G) at (6,3.5) {\textcolor{blue}{MD, DPD, SPH藕合}};
+    %\node [block](H) at (6,-3.5) {CPU};
+
+    \node [block, fill=red!30](I) at (6,1.5) {\textcolor{blue}{多物理场}};
+    \node [block, fill=blue!20](J) at (6,-3.5) {\textcolor{blue}{乳腺癌细胞}};
+    %\node [block](K) at (9,-3.5) {\textcolor{blue}{GPU}};
+
+    \node [block, fill=red!30](L) at (12,-1) {\textcolor{blue}{高性能大规模计算}};
+
+    \node [block, fill=red!30](M) at (3,1.5) {\textcolor{blue}{势函数}};
+    \node [decision](N) at (9.5,-1) {\scriptsize 珠簧链};
+    \node [decision](O) at (3,-2.8) {\scriptsize 简单流体};
+
+    \path [line] (A) -- (B);
+    \path [line] (A) |- (C);
+    \path [line] (A) |- (D);
+    \path [line] (B) -| (E);
+    \path [line] (B) -| (F);
+    \path [blue, line, dashed] (C) -- (G);
+
+    \path [line] (E) -- (I);
+    \path [line] (F) -- (J);
+
+    \path [blue, line, dashed] (D) --(12.5,-4.5)-- (12.5,-1.6);
+    \path [blue, line, dashed] (G) --(12.5,3.5)-- (12.5,-0.4);
+    \path [blue, line, dashed] (G) -- (6,2.5) -- (4.5,2.5)-- (4.5, 0.25) -- (3, 0.25);
+    \path [blue, line, dashed] (L) |- (I);
+    \path [blue, line, dashed] (L) |- (J);
+    \path [blue, line, dashed] (L) |- (E);
+    \path [blue, line, dashed] (L) |- (F);
+
+    \path [blue, line, dashed] (C) -- (M);
+    \path [blue, line, dashed] (M) -- (B);
+    
+    \path [line] (E)--node[sloped, fill=red!8.5]{\tiny 验证} (N);
+    \path [line] (N)--node[sloped, fill=red!8.5]{\tiny 应用} (F);
+    \path [line] (O)--node[left]{\tiny 验证} (B);
+
+\end{tikzpicture}}

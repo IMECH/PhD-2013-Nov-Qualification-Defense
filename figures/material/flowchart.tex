@@ -1,0 +1,50 @@
+\usetikzlibrary{shapes,arrows}
+\tikzstyle{decision} = [diamond, draw, fill=blue!20, 
+    text width=45, text badly centered, node distance=75, inner sep=0pt]
+\tikzstyle{block} = [rectangle, draw, fill=blue!20, 
+    text width=50, text centered, rounded corners, minimum height=30]
+\tikzstyle{line} = [draw, -latex', very thick]
+\tikzstyle{cloud} = [draw, ellipse,fill=red!20, node distance=75,
+    text width=30, minimum height=10]
+{\footnotesize
+\begin{tikzpicture}[scale=0.76]
+    % Place nodes
+    \node [block](A) at (0,0) {研究内容};
+    \node [block](B) at (3,0) {应用};
+    \node [block](C) at (3,3.5) {方法};
+    \node [block](D) at (3,-3.5) {并行};
+
+    \node [block](E) at (6,1.5) {高分子};
+    \node [block](F) at (6,-1.5) {红细胞};
+    \node [block](G) at (6,3.5) {\textcolor{gray}{MD, DPD, SPH藕合}};
+    \node [block](H) at (6,-3.5) {CPU};
+
+    \node [block](I) at (9,1.5) {\textcolor{gray}{多物理场}};
+    \node [block](J) at (9,-1.5) {\textcolor{gray}{乳腺癌细胞}};
+    \node [block](K) at (9,-3.5) {\textcolor{gray}{GPU}};
+
+    \node [block](L) at (12,0) {\textcolor{gray}{高性能大规模计算}};
+
+    \node [cloud](M) at (3,1.75) {\textcolor{gray}{势函数}};
+
+    \path [line] (A) -- (B);
+    \path [line] (A) |- (C);
+    \path [line] (A) |- (D);
+    \path [line] (B) -| (E);
+    \path [line] (B) -| (F);
+    \path [line] (D) -- (H);
+    \path [gray, line] (C) -- (G);
+
+    \path [line] (E) -- (I);
+    \path [line] (F) -- (J);
+    \path [gray,line] (H) -- (K);
+
+    \path [gray, line] (K) -| (L);
+    \path [gray, line] (G) -| (L);
+    \path [gray, line] (L) -| (I);
+    \path [gray, line] (L) -| (J);
+
+    \path [gray, line] (C) -- (M);
+    \path [gray, line] (M) -- (B);
+
+\end{tikzpicture}}
